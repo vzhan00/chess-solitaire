@@ -4,17 +4,19 @@ import { StyleSheet, Text, View, Button, Alert, TouchableOpacity } from 'react-n
 import Home from './views/Home';
 import { NativeRouter, Switch, Route } from 'react-router-native'
 import fourBoard from './views/fourBoard';
+import Game from './game-logic/Game';
 
 export default function App() {
+  let game = new Game(4);
   return (
     <NativeRouter>
-    <View style={styles.container}>
-      <Switch>
-        <Route exact path="/" component={Home}/>
-        <Route exact path="/fourBoard" component={fourBoard}/>
-      </Switch>
-      <StatusBar style="auto" />
-    </View>
+      <View style={styles.container}>
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route exact path="/fourBoard" component={fourBoard} />
+        </Switch>
+        <StatusBar style="auto" />
+      </View>
     </NativeRouter>
   );
 }
