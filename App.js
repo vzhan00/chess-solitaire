@@ -1,13 +1,21 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, Button, Alert, TouchableOpacity } from 'react-native';
+import Home from './views/Home';
+import { NativeRouter, Switch, Route } from 'react-router-native'
+import fourBoard from './views/fourBoard';
 
 export default function App() {
   return (
+    <NativeRouter>
     <View style={styles.container}>
-      <Text>Open up App.js to start working on JHSDKAHD app!</Text>
+      <Switch>
+        <Route exact path="/" component={Home}/>
+        <Route exact path="/fourBoard" component={fourBoard}/>
+      </Switch>
       <StatusBar style="auto" />
     </View>
+    </NativeRouter>
   );
 }
 
