@@ -1,61 +1,66 @@
 import React from 'react'
 import { Image, StyleSheet } from 'react-native'
 
-var Empty = function(name, color) {
-    var string = "";
-    //0 white, 1 black
+//Allows us to change what a piece is in the future and add more
+//1 white, 0 black
 
+//piece field is to avoid needing to use instanceof and allows us to describe
+
+export const Empty = () => {
     return {
-        string: string,
+        piece: "",
     }
 }
 
-// var Pawn = function(props) {
-//     var string = "p";
-//     //const draw = <div><Image source={ white_pawn }></Image></div>;
+// Thought about using a piece abstraction, but every piece has their own behavior
+// Decided to make it so you can add whatever piece you want
+// no longer need a switch case, organized by behavior
 
-//     return {
-//         <Image/> 
-//     }
-// }
+// moveValid is used in Game.js 
 
-var Rook = function(color) {
-    var string = "r";
+export const Pawn = (color) => {
+    //this function is used in Game.js
+    const moveValid = (pieceI, pieceJ, i, j) => {
+        return j - pieceJ == 1 && Math.abs(pieceI - i) === 1;
+    }
 
     return {
-        string: string,
+        string: "p",
         color: color
     }
 }
 
-var Knight = function() {
-    var string = "n";
-
+export const Rook = (color) => {
     return {
-        string: string
+        string: "r",
+        color: color
     }
 }
 
-var Bishop = function() {
-    var string = "b";
-
+export const Knight = (color) => {
     return {
-        string: string
+        string: "n",
+        color: color
     }
 }
 
-var King = function() {
-    var string = "k";
-
+export const Bishop = (color) => {
     return {
-        string: string
+        string: "b",
+        color: color
     }
 }
 
-var Queen = function() {
-    var string = "q";
-
+export const King = (color) => {
     return {
-        string: string
+        string: "k",
+        color: color
+    }
+}
+
+export const Queen = (color) => {
+    return {
+        string: "q",
+        color: color
     }
 }

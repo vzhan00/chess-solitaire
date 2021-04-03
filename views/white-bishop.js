@@ -26,4 +26,4 @@ function WhiteBishop(props) {
     )
 }
 
-export default WhiteBishop
+export { WhiteBishop }
